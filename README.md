@@ -78,3 +78,72 @@ void main() {
     }
   }
 }
+
+
+
+
+class Calculator {
+  // Properties
+  double _number1;
+  double _number2;
+
+  // Constructor
+  Calculator(this._number1, this._number2);
+
+  // Getters
+  double get number1 => _number1;
+  double get number2 => _number2;
+
+  // Setters
+  set number1(double value) {
+    _number1 = value;
+  }
+
+  set number2(double value) {
+    _number2 = value;
+  }
+
+  // Methods
+  double add() {
+    return _number1 + _number2;
+  }
+
+  double subtract() {
+    return _number1 - _number2;
+  }
+
+  double multiply() {
+    return _number1 * _number2;
+  }
+
+  double divide() {
+    if (_number2 == 0) {
+      print("Error: Division by zero is not allowed.");
+      return double.nan; // Return NaN for division by zero
+    } else {
+      return _number1 / _number2;
+    }
+  }
+}
+
+void main() {
+  // Create an instance of the Calculator class
+  Calculator calc = Calculator(10, 5);
+
+  // Set values using setters
+  calc.number1 = 15;
+  calc.number2 = 3;
+
+  // Call methods and print the results
+  print("Number 1: ${calc.number1}");
+  print("Number 2: ${calc.number2}");
+
+  print("Addition: ${calc.add()}");
+  print("Subtraction: ${calc.subtract()}");
+  print("Multiplication: ${calc.multiply()}");
+  print("Division: ${calc.divide()}");
+
+  // Test division by zero
+  calc.number2 = 0;
+  print("Division with zero: ${calc.divide()}");
+}
